@@ -3,50 +3,187 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Amazon Affiliate Site</title>
+  <title>Shop Everything on Amazon – Today’s Top Deals!</title>
+  <meta name="description" content="Discover today’s top deals on Amazon, gadgets, home essentials, books, and more. Click to shop and save!">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f7f7f7;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
       color: #333;
     }
-    h1 {
-      color: #FF9900; /* Amazon color */
+    header {
+      background-color: #232f3e;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
     }
-    .product {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 20px;
-      background-color: #fff;
-      border-radius: 8px;
+    header h1 {
+      margin: 0.5rem 0;
+      font-size: 2.2rem;
     }
-    a {
-      text-decoration: none;
-      color: #FF9900;
+    header p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    header #current-date {
+      font-size: 1rem;
+      color: #ffcc00;
+      margin-top: 0.5rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #ff9900;
+      color: #111;
       font-weight: bold;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      transition: background-color 0.3s;
     }
-    a:hover {
-      text-decoration: underline;
+    .cta-button:hover {
+      background-color: #e68a00;
+    }
+    section {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    section img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    footer {
+      background-color: #232f3e;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    ul {
+      text-align: left;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0;
+      list-style-type: disc;
+    }
+    ul li {
+      margin-bottom: 0.8rem;
+    }
+    .deals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .deal-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .deal-card img {
+      max-width: 100%;
+      border-radius: 6px;
+    }
+    .deal-card h3 {
+      font-size: 1rem;
+      margin: 0.8rem 0;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Amazon Store</h1>
-  <p>Check out my recommended products:</p>
 
-  <div class="product">
-    <h2>Example Product 1</h2>
-    <p>Great product for everyday use!</p>
-    <a href="https://www.amazon.com/dp/B08N5WRWNW?tag=YOURAFFILIATEID-20" target="_blank">Buy on Amazon</a>
+  <header>
+    <h1>Shop Today’s Top Amazon Deals</h1>
+    <p>Hot gadgets, books, home essentials & more – updated daily!</p>
+    <div id="current-date"></div>
+    <a class="cta-button" href="https://www.amazon.com/?tag=bensparkplace-20" target="_blank" rel="noopener noreferrer">Start Shopping Now</a>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Why Amazon is Your Best Choice</h2>
+      <ul>
+        <li>Millions of products across every category imaginable</li>
+        <li>Fast & reliable shipping with Amazon Prime</li>
+        <li>Exclusive deals and discounts daily</li>
+        <li>Easy returns and 24/7 customer support</li>
+        <li>Secure checkout you can trust</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Top Deals Today</h2>
+      <div class="deals-grid" id="deals-grid">
+        <p>Loading today’s deals...</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Shop Smart, Shop Amazon</h2>
+      <p>Whether you're upgrading your tech, finding gifts, or stocking up on essentials, Amazon makes it easy and convenient.</p>
+      <a class="cta-button" href="https://www.amazon.com/?tag=bensparkplace-20" target="_blank" rel="noopener noreferrer">Start Shopping Now</a>
+    </section>
   </div>
 
-  <div class="product">
-    <h2>Example Product 2</h2>
-    <p>Highly rated by users!</p>
-    <a href="https://www.amazon.com/dp/B07FZ8S74R?tag=YOURAFFILIATEID-20" target="_blank">Buy on Amazon</a>
-  </div>
+  <footer>
+    <p>Affiliate Disclaimer: This page contains affiliate links. If you make a purchase, we may earn a small commission at no extra cost to you. Thank you for supporting our site!</p>
+  </footer>
+
+  <script>
+    // Display current date
+    const today = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('current-date').textContent = today.toLocaleDateString('en-US', options);
+
+    // Placeholder deals (for GitHub Pages, replace with your serverless API for live Amazon deals)
+    const deals = [
+      {
+        title: "Echo Dot (5th Gen) Smart Speaker",
+        img: "https://m.media-amazon.com/images/I/61u48FEsnNL._AC_SL1000_.jpg",
+        link: "https://www.amazon.com/?tag=bensparkplace-20"
+      },
+      {
+        title: "Instant Pot Duo 7-in-1",
+        img: "https://m.media-amazon.com/images/I/71NY3i4f5sL._AC_SL1500_.jpg",
+        link: "https://www.amazon.com/?tag=bensparkplace-20"
+      },
+      {
+        title: "Kindle Paperwhite",
+        img: "https://m.media-amazon.com/images/I/61o9aH2eAfL._AC_SL1000_.jpg",
+        link: "https://www.amazon.com/?tag=bensparkplace-20"
+      }
+    ];
+
+    const dealsGrid = document.getElementById("deals-grid");
+    dealsGrid.innerHTML = ""; // Clear loading text
+
+    deals.forEach(deal => {
+      const card = document.createElement("div");
+      card.className = "deal-card";
+      card.innerHTML = `
+        <img src="${deal.img}" alt="${deal.title}">
+        <h3>${deal.title}</h3>
+        <a class="cta-button" href="${deal.link}" target="_blank" rel="noopener noreferrer">Shop Now</a>
+      `;
+      dealsGrid.appendChild(card);
+    });
+
+    // Future integration:
+    // Use your serverless proxy to fetch live Amazon Product Advertising API JSON
+    // and replace 'deals' array dynamically for real-time top deals.
+  </script>
 
 </body>
 </html>
-
